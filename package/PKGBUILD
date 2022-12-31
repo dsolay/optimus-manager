@@ -5,7 +5,7 @@ pkgver=1.5
 pkgrel=1
 pkgdesc="Management utility to handle GPU switching for Optimus laptops (Git version)"
 arch=('any')
-url="https://github.com/Askannz/optimus-manager"
+url="https://github.com/dsolay/optimus-manager"
 license=('MIT')
 conflicts=("optimus-manager")
 provides=("optimus-manager=$pkgver")
@@ -28,11 +28,12 @@ backup=('etc/optimus-manager/xorg/integrated-mode/integrated-gpu.conf'
         'etc/optimus-manager/nvidia-disable.sh'
 
         'var/lib/optimus-manager/persistent/startup_mode')
-source=("git+https://github.com/Askannz/optimus-manager.git#branch=master")
+source=("git+https://github.com/dsolay/optimus-manager.git#branch=master")
 sha256sums=('SKIP')
 
 pkgver() {
   cd "${srcdir}/optimus-manager/"
+  # git rev-parse HEAD
   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
  
