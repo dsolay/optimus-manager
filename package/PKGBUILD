@@ -39,7 +39,6 @@ pkgver() {
 build() {
   cd "${srcdir}/optimus-manager/"
   python -m build --wheel --no-isolation
- 
 }
 
 package() {
